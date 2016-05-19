@@ -42,6 +42,7 @@ void Cylinder::readGeometricObject(const int start,const std::vector<std::string
 		std::cout << "Error in TYPE " << GetType() << ": File is not formatted correctly" << std::endl;
 	    exit(1);
 	}
+
 	//Store CONE name
 	SetName(tokens[start+1]);
 

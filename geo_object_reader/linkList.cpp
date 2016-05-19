@@ -4,48 +4,48 @@
 #include "linkList.hpp"
 
 LinkedList::LinkedList() {
-   mFirstPtr = mLastPtr = NULL;
+	mFirstPtr = mLastPtr = NULL;
 }
 
 LinkedList::~LinkedList() {
-    GeometricObject *currentPtr = mFirstPtr;
-    GeometricObject *tempPtr;
+	GeometricObject *currentPtr = mFirstPtr;
+	GeometricObject *tempPtr;
 
-    while (currentPtr != NULL) {
+	while (currentPtr != NULL) {
 		tempPtr=currentPtr;
 		currentPtr = currentPtr->mNextPtr;
 		delete tempPtr;
-    }
+	}
 }
 
 void LinkedList::push_back(GeometricObject *obj) {
-    // Special case where list is empty.
-    if (mLastPtr == NULL) {
+	// Special case where list is empty.
+	if (mLastPtr == NULL) {
 		mLastPtr = obj;
 		mFirstPtr = mLastPtr;
 		obj->mNextPtr = NULL;
 		obj->mPrevPtr = NULL;
-    } else {
+	} else {
 		mLastPtr->mNextPtr = obj;
 		obj->mPrevPtr = mLastPtr;
 		obj->mNextPtr = NULL;
 		mLastPtr = obj;
-    }
+	}
 }
 
 void LinkedList::push_front(GeometricObject *obj) {
-    // Special case where list is empty.
-    if (mFirstPtr == NULL) {
+	// Special case where list is empty.
+	if (mFirstPtr == NULL) {
 		mFirstPtr = obj;
 		mLastPtr = mFirstPtr;
 		obj->mNextPtr = NULL;
 		obj->mPrevPtr = NULL;
-    } else {
+	} else {
 		mFirstPtr->mPrevPtr = obj;
 		obj->mNextPtr = mFirstPtr;
 		obj->mPrevPtr = NULL;
 		mFirstPtr = obj;
-    }
+	}
 }
 
 int LinkedList::find(std::string& name, GeometricObject*& obj) {

@@ -25,7 +25,7 @@ void Sphere::readGeometricObject(const int start,const std::vector<std::string> 
 	//Check to see if enough data has been written to completely define SPHERE
 	if(tokens.size()<(start+size)) {
 		std::cout << "Error in TYPE " << GetType() << ": File is not formatted correctly" << std::endl;
-	    exit(1);
+		exit(1);
 	}
 
 	SetName(tokens[start+1]);
@@ -112,20 +112,20 @@ void Sphere::DrawList() {
 	GetScale(Sx,Sy,Sz);
 
 	glNewList(SPHERE, GL_COMPILE);
-        glColor3fv(vBLUE);
-        //glMaterialfv( GL_FRONT, GL_AMBIENT_AND_DIFFUSE, vBLUE );
+		glColor3fv(vBLUE);
+		//glMaterialfv( GL_FRONT, GL_AMBIENT_AND_DIFFUSE, vBLUE );
 		 glPushMatrix ();
-		    //Rotations
-            glRotatef ((GLfloat)Rx, (GLfloat)1.0, (GLfloat)0.0, (GLfloat)0.0);
-		    glRotatef ((GLfloat)Ry, (GLfloat)0.0, (GLfloat)1.0, (GLfloat)0.0);
-		    glRotatef ((GLfloat)Rz, (GLfloat)0.0, (GLfloat)0.0, (GLfloat)1.0);
-		    //Scaling
-		    glScalef ((GLfloat)Sx,(GLfloat)Sy,(GLfloat)Sz);
-		    //Translations
-		    glTranslatef ((GLfloat)Tx, (GLfloat)Ty, (GLfloat)Tz);
-            sphereObj = gluNewQuadric ();
+			//Rotations
+			glRotatef ((GLfloat)Rx, (GLfloat)1.0, (GLfloat)0.0, (GLfloat)0.0);
+			glRotatef ((GLfloat)Ry, (GLfloat)0.0, (GLfloat)1.0, (GLfloat)0.0);
+			glRotatef ((GLfloat)Rz, (GLfloat)0.0, (GLfloat)0.0, (GLfloat)1.0);
+			//Scaling
+			glScalef ((GLfloat)Sx,(GLfloat)Sy,(GLfloat)Sz);
+			//Translations
+			glTranslatef ((GLfloat)Tx, (GLfloat)Ty, (GLfloat)Tz);
+			sphereObj = gluNewQuadric ();
 			gluQuadricDrawStyle (sphereObj, GLU_LINE);
 			gluSphere (sphereObj, mRadius, 14, 20);
 		glPopMatrix ();
-    glEndList();
+	glEndList();
 }

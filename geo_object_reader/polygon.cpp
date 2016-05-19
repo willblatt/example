@@ -8,7 +8,7 @@ Polygonal::Polygonal() {
 
 Polygonal::~Polygonal() {
 	for(int i=0;i<mNumOfPoints;i++) {
-        delete mL[i];
+		delete mL[i];
 	}
 	delete mL;
 }
@@ -31,7 +31,7 @@ void Polygonal::readGeometricObject(const int start,const std::vector<std::strin
 
 	//find number of points in POLYGON
 	int ptscheck;
-    if(!(std::istringstream(tokens[start+2]) >> ptscheck)){
+	if(!(std::istringstream(tokens[start+2]) >> ptscheck)){
 		std::cout << "Error in TYPE " << GetType() << ": Nonnumeric value or file formatted incorrectly" << std::endl;
 		exit(1);
 	}
@@ -47,7 +47,7 @@ void Polygonal::readGeometricObject(const int start,const std::vector<std::strin
 
 	if(tokens.size()<(start+size)) {
 		std::cout << "Error in TYPE " << GetType() << ": File is not formatted correctly" << std::endl;
-	    exit(1);
+		exit(1);
 	}
 
 	//convert object definitions from strings to doubles and store values
@@ -64,7 +64,7 @@ void Polygonal::readGeometricObject(const int start,const std::vector<std::strin
 	int k=0;
 	for(i=0;i<mNumOfPoints;i++) {
 		for(int j=0;j<3;j++) {
-            mL[i][j]=objval[k];
+			mL[i][j]=objval[k];
 			k++;
 		}
 	}
@@ -82,7 +82,7 @@ void Polygonal::printGeometricObject() {
 
 	for(int i=0;i<mNumOfPoints;i++) {
 		for(int j=0;j<3;j++) {
-            std::cout << mL[i][j] << "\t";
+			std::cout << mL[i][j] << "\t";
 		}
 		std::cout << std::endl;
 	}
@@ -119,7 +119,7 @@ void Polygonal::writeGeometricObjectToFile(std::ofstream& outfile) {
 	//print out points
 	for(int i=0;i<mNumOfPoints;i++) {
 		for(int j=0;j<3;j++) {
-            outfile << mL[i][j] << ",";
+			outfile << mL[i][j] << ",";
 		}
 		outfile << std::endl;
 	}
@@ -169,7 +169,7 @@ void Polygonal::DrawList() {
 			glBegin(GL_POLYGON);
 			for(int i=0;i<mNumOfPoints;i++) {
 				for(int j=0;j<3;j++) {
-                    glVertex3f(mL[i][0],mL[i][1],mL[i][2]);
+					glVertex3f(mL[i][0],mL[i][1],mL[i][2]);
 				}
 			}
 			glEnd();

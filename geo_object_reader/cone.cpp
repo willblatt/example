@@ -40,7 +40,7 @@ void Cone::readGeometricObject(const int start,const std::vector<std::string> to
 	//Check to see if enough data has been written to completely define CONE
 	if(tokens.size()<(start+size)) {
 		std::cout << "Error in TYPE " << GetType() << ": File is not formatted correctly" << std::endl;
-	    exit(1);
+		exit(1);
 	}
 
 	//Store CONE name
@@ -60,7 +60,7 @@ void Cone::readGeometricObject(const int start,const std::vector<std::string> to
 
 
 	set_height(objval[0]);
-    set_base_radius(objval[1]);
+	set_base_radius(objval[1]);
 
 	//translations,rotations,and scale converstions
 	//set translations
@@ -133,21 +133,21 @@ void Cone::DrawList() {
 	GetScale(Sx,Sy,Sz);
 
 	glNewList(CONE, GL_COMPILE);
-        glColor3fv(vRED);
-        //glMaterialfv( GL_FRONT, GL_AMBIENT_AND_DIFFUSE, vRED );
-        glPushMatrix ();
-		    //Rotations
-            glRotatef ((GLfloat)Rx, (GLfloat)1.0, (GLfloat)0.0, (GLfloat)0.0);
-		    glRotatef ((GLfloat)Ry, (GLfloat)0.0, (GLfloat)1.0, (GLfloat)0.0);
-		    glRotatef ((GLfloat)Rz, (GLfloat)0.0, (GLfloat)0.0, (GLfloat)1.0);
-		    //Scaling
-		    glScalef ((GLfloat)Sx,(GLfloat)Sy,(GLfloat)Sz);
-		    //Translations
-		    glTranslatef ((GLfloat)Tx, (GLfloat)Ty, (GLfloat)Tz);
-            quadObj = gluNewQuadric ();
-            gluQuadricDrawStyle (quadObj, GLU_FILL);
-            gluQuadricNormals (quadObj, GLU_SMOOTH);
-            gluCylinder(quadObj, mBaseRadius, 0.0, mHeight, 15, 10);
+		glColor3fv(vRED);
+		//glMaterialfv( GL_FRONT, GL_AMBIENT_AND_DIFFUSE, vRED );
+		glPushMatrix ();
+			//Rotations
+			glRotatef ((GLfloat)Rx, (GLfloat)1.0, (GLfloat)0.0, (GLfloat)0.0);
+			glRotatef ((GLfloat)Ry, (GLfloat)0.0, (GLfloat)1.0, (GLfloat)0.0);
+			glRotatef ((GLfloat)Rz, (GLfloat)0.0, (GLfloat)0.0, (GLfloat)1.0);
+			//Scaling
+			glScalef ((GLfloat)Sx,(GLfloat)Sy,(GLfloat)Sz);
+			//Translations
+			glTranslatef ((GLfloat)Tx, (GLfloat)Ty, (GLfloat)Tz);
+			quadObj = gluNewQuadric ();
+			gluQuadricDrawStyle (quadObj, GLU_FILL);
+			gluQuadricNormals (quadObj, GLU_SMOOTH);
+			gluCylinder(quadObj, mBaseRadius, 0.0, mHeight, 15, 10);
 		glPopMatrix ();
-    glEndList();
+	glEndList();
 }

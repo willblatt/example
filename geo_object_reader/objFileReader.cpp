@@ -5,21 +5,21 @@ LinkedList* GeoObjReader() {
 	std::string filename;
 	filename=GEOMOBJECTINFILE;
 	std::ifstream infile (filename.c_str());
-    if(infile==NULL || filename.length()==0) {
+	if(infile==NULL || filename.length()==0) {
 		std::cout << "Error: Geometric Object File not found" << std::endl;
 		exit(1);
 	}
 
-    std::vector<std::string> tokens;
+	std::vector<std::string> tokens;
 	std::string line;
 
 	do {
-        std::getline(infile, line, '\n');
+		std::getline(infile, line, '\n');
 
 		tokenize(line, tokens);
 		if(infile.eof()==1) {
 			std::cout << "Error: File is not formatted correctly or is empty" << std::endl;
-            exit(1);
+			exit(1);
 		}
 	} while(tokens.size()<=0);
 

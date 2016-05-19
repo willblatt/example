@@ -53,7 +53,7 @@ void Box::readGeometricObject(const int start,const std::vector<std::string> tok
 	//Check to see if enough data has been written to completely define BOX
 	if(tokens.size()<(start+size)) {
 		std::cout << "Error in TYPE " << GetType() << ": File is not formatted correctly" << std::endl;
-	    exit(1);
+		exit(1);
 	}
 	//Store BOX name
 	SetName(tokens[start+1]);
@@ -72,7 +72,7 @@ void Box::readGeometricObject(const int start,const std::vector<std::string> tok
 
 
 	set_height(objval[0]);
-    set_width(objval[1]);
+	set_width(objval[1]);
 	set_length(objval[2]);
 
 	SetTranslation(objval[3],objval[4],objval[5]);

@@ -54,11 +54,11 @@ void Sphere::create_draw_list(float alpha) {
 	//GLfloat vMAGENTA[] = {1, 0.84, 0.0, alpha};
 	glNewList(mDrawListID, GL_COMPILE);
 	glColor4f(1,0.84,0.0, alpha);
-    //glMaterialfv( GL_FRONT, GL_AMBIENT_AND_DIFFUSE, vMAGENTA );
+	//glMaterialfv( GL_FRONT, GL_AMBIENT_AND_DIFFUSE, vMAGENTA );
 	GLUquadricObj *mySphereObj;
-    mySphereObj = gluNewQuadric ();
-    gluQuadricDrawStyle (mySphereObj, GLU_FILL);
-    gluSphere (mySphereObj, mRadius, 80, 64);
+	mySphereObj = gluNewQuadric ();
+	gluQuadricDrawStyle (mySphereObj, GLU_FILL);
+	gluSphere (mySphereObj, mRadius, 80, 64);
 	glEndList();
 }
 
